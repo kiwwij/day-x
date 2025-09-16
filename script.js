@@ -271,6 +271,8 @@ function createSeasonEffect() {
     createSnow();
   } else if (month >= 2 && month <= 4) {
     createRain();
+  } else if (month >= 5 && month <= 7) {
+    createSummerFlowers();
   } else if (month >= 8 && month <= 10) {
     createLeaves();
   }
@@ -300,6 +302,33 @@ function createRain() {
 
     setTimeout(() => drop.remove(), 2000);
   }, 100);
+}
+
+// ЛЕТО 🌺
+function createSummerFlowers() {
+  const flowers = ['🌸', '🌼', '🌺'];
+  setInterval(() => {
+    const flower = document.createElement('div');
+    flower.className = 'flower';
+    flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+    flower.style.position = 'fixed';
+    flower.style.left = Math.random() * 100 + 'vw';
+    flower.style.top = '-20px';
+    flower.style.fontSize = (Math.random() * 20 + 15) + 'px';
+    flower.style.zIndex = '0';
+    flower.style.pointerEvents = 'none';
+    flower.style.transition = 'all 5s linear';
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => {
+      flower.style.top = '100vh';
+      flower.style.left = parseFloat(flower.style.left) + (Math.random() * 50 - 25) + 'vw';
+      flower.style.opacity = '0.8';
+    }, 50);
+
+    setTimeout(() => flower.remove(), 5000);
+  }, 300);
 }
 
 // ЛИСТЬЯ 🍂
