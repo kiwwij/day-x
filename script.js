@@ -196,7 +196,7 @@ function getGoogleCalendarLink() {
   const start = `${year}0608T000000Z`;
   const end = `${year}0608T235900Z`;
 
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Зайди+на+сайт!+https://kiwwij.github.io/day-x/&details=Не+забудь+зайти+на+сайт!&dates=${start}/${end}`;
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Зайди+на+сайт!+https://kiwwij.github.io/day-x/index.html&details=Не+забудь+зайти+на+сайт!&dates=${start}/${end}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
