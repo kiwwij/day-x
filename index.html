@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="kiwwij">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Рождения, Максим!</title>
+    <link rel="shortcut icon" href="img/MAX.jpg">
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
+</head>
+
+<audio id="sound-confetti" src="sounds/confetti.mp3" preload="auto"></audio>
+<audio id="sound-pop" src="sounds/pop.mp3" preload="auto"></audio>
+<audio id="sound-correct" src="sounds/correct.mp3" preload="auto"></audio>
+<audio id="sound-wrong" src="sounds/wrong.mp3" preload="auto"></audio>
+
+<audio id="background-music" src="sounds/happy_birthday.mp3" loop preload="auto"></audio>
+<button id="musicToggle" class="music-btn">🔇</button>
+
+<body>
+    <div id="birthdayContent" class="container">
+        <header>
+            <h1>С Днём Рождения, Максим!</h1>
+            <div class="birthday-date">Пусть этот день будет незабываемым!</div>
+        </header>
+        
+        <div class="message-box">
+            <p class="message">Дорогой Максим! От всего сердца поздравляю тебя с днём рождения! Желаю тебе крепкого здоровья, невероятного счастья, впечатляющих успехов во всех начинаниях и исполнения самых заветных желаний! Ну и конечного много, много деняг и любви!</p>
+            <p class="message">Я не самый лучший друг, который мог тебе попасться, но я надеюсь, что смог принести тебе эмоции в этот день)</p>
+            <p class="signature">Серёжа AKA kiwwij</p>
+        </div>
+        
+        <button onclick="createConfetti()">🎉 Запустить конфетти! 🎉</button>
+        
+        <div class="interactive-section">
+            <h2>Лопни шарик - получи пожелание!</h2>
+            <div class="balloons">
+                <div class="balloon" style="background-color: #ff5e62; animation-delay: 0s;" onclick="popBalloon(this)">1</div>
+                <div class="balloon" style="background-color: #66ccff; animation-delay: 0.5s;" onclick="popBalloon(this)">2</div>
+                <div class="balloon" style="background-color: #ffcc66; animation-delay: 1s;" onclick="popBalloon(this)">3</div>
+                <div class="balloon" style="background-color: #6acc66; animation-delay: 1.5s;" onclick="popBalloon(this)">4</div>
+                <div class="balloon" style="background-color: #cc66ff; animation-delay: 2s;" onclick="popBalloon(this)">5</div>
+            </div>
+        </div>
+        
+        <div class="quiz-container">
+            <h2>Мини-викторина о Максиме</h2>
+            <div class="quiz-question" id="question">Какая у Максима любимая фраза?</div>
+            <div class="quiz-options">
+                <div class="quiz-option" data-correct="true" onclick="checkAnswer(this)">Тише, тише, девочка</div>
+                <div class="quiz-option" data-correct="true" onclick="checkAnswer(this)">Ща, я пописять отойду</div>
+                <div class="quiz-option" data-correct="true" onclick="checkAnswer(this)">
+                    itami o kanjiro…<br>
+                    itami o kangaero…<br>
+                    itami o uketore…<br>
+                    itami o shire…<br>
+                    itami o shiranu mono ni…<br>
+                    honto no heiwa wa wakaran…<br>
+                    sekai ni itami o…<br>
+                    SHINRA TENSEI
+                </div>
+                <div class="quiz-option" onclick="checkAnswer(this)">(Ну я уже хз чё добавить)</div>
+            </div>
+            <div id="quiz-result"></div>
+        </div>
+
+        <div class="gallery">
+            <img src="img/photo1.jpg" 
+                alt="Фото 1" 
+                onerror="this.onerror=null;this.src='https://placehold.co/180x180/ff6b6b/white?text=Фото+1';">
+            <img src="img/photo2.jpg" 
+                alt="Фото 2" 
+                onerror="this.onerror=null;this.src='https://placehold.co/180x180/6b6bff/white?text=Фото+2';">
+            <img src="img/photo3.jpg" 
+                alt="Фото 3" 
+                onerror="this.onerror=null;this.src='https://placehold.co/180x180/6bff6b/white?text=Фото+3';">
+            <img src="img/photo4.jpg" 
+                alt="Фото 4" 
+                onerror="this.onerror=null;this.src='https://placehold.co/180x180/ffcc6b/white?text=Фото+4';">
+            <img src="img/photo5.jpg" 
+                alt="Фото 5" 
+                onerror="this.onerror=null;this.src='https://placehold.co/180x180/ff6bff/white?text=Фото+5';">
+        </div>
+
+        <div id="photoModal" class="modal">
+            <span class="close" id="modalClose">&times;</span>
+            <div class="modal-content">
+                <img id="modalImage" src="" alt="Фото">
+                <p id="modalCaption"></p>
+                <div class="modal-nav">
+                    <span class="prev" id="modalPrev">&#10094;</span>
+                    <span class="next" id="modalNext">&#10095;</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Создано с ❤️ специально для Максима</p>
+            <p id="aiText" class="blur-text">увы, но не без AI-шки((</p>
+        </footer>
+    </div>
+</body>
+</html>
