@@ -1,3 +1,15 @@
+// ======== Получение реального времени через API ========
+async function getRealTime() {
+  try {
+    const response = await fetch('https://worldtimeapi.org/api/timezone/Etc/UTC');
+    const data = await response.json();
+    return new Date(data.datetime); // Время по UTC
+  } catch (error) {
+    console.error('Ошибка получения времени, fallback на локальное:', error);
+    return new Date(); // fallback на время устройства
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("background-music");
     const toggleBtn = document.getElementById("musicToggle");
@@ -124,9 +136,20 @@ function checkAnswer(element) {
     }
 }
 
-// ======== Проверка дня рождения ========
-function checkBirthday() {
-  const now = new Date();
+// ======== Проверка дня рождения через API ========
+async function getRealTime() {
+  try {
+    const response = await fetch('https://worldtimeapi.org/api/timezone/Etc/UTC');
+    const data = await response.json();
+    return new Date(data.datetime); // Время по UTC
+  } catch (error) {
+    console.error('Ошибка получения времени, fallback на локальное:', error);
+    return new Date(); // fallback на локальное время
+  }
+}
+
+async function checkBirthday() {
+  const now = await getRealTime(); // Берём точное время через API
   const currentMonth = now.getMonth();
   const currentDay = now.getDate();
 
@@ -135,9 +158,7 @@ function checkBirthday() {
     updateCountdown();
     setInterval(updateCountdown, 1000);
   } else {
-    if (!window.location.href.includes('countdown.html')) {
-      window.location.href = 'countdown.html';
-    }
+    window.location.href = 'countdown.html';
   }
 }
 
@@ -163,9 +184,9 @@ function updateCountdown() {
 }
 
 // ======== Таймер на странице ожидания ========
-function updateCountdownPage() {
-  const now = new Date();
-  const nextBirthday = new Date(now.getFullYear(), 5, 8);
+async function updateCountdownPage() {
+  const now = await getRealTime(); // Берём серверное время
+  const nextBirthday = new Date(now.getFullYear(), 5, 8); // 8 июня (месяц с 0)
 
   if (now > nextBirthday) {
     nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
