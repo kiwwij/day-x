@@ -1,0 +1,147 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --primary-color: #7b4397;
+    --accent-color: #dc2430;
+    --text-color: #ffffff;
+    --input-bg: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    text-align: center;
+    background: var(--glass-bg);
+    padding: 50px 40px;
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    max-width: 400px;
+    width: 90%;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+p {
+    font-weight: 300;
+    color: #ccc;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+input {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    outline: none;
+    background: var(--input-bg);
+    color: white;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+
+input:focus {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(123, 67, 151, 0.3), inset 0 2px 4px rgba(0,0,0,0.5);
+    transform: scale(1.02);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+}
+
+button {
+    padding: 15px 50px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    background-size: 200% auto;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    transition: 0.5s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-position: right center;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(220, 36, 48, 0.4);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.error {
+    color: #ff6b6b;
+    margin-top: 20px;
+    display: none; 
+    font-size: 14px;
+    font-weight: 500;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

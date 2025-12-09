@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="kiwwij">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Небольшой подарок на Новый Год!</title>
+    <!-- <link rel="shortcut icon" href="img/MAX.jpg"> -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="who_are_u.css">
+    <script src="who_are_u.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Представьтесь, пожалуйста</h1>
+        <p>Введите своё имя, чтобы получить подарок:<br>(если не получается, введите 1ую букву вашей фамилии)</p>
+        
+        <input type="text" id="nameInput" placeholder="Имя..." autocomplete="off">
+        <br>
+        <button onclick="checkName()">Войти</button>
+        
+        <p id="errorMsg" class="error">Хм, я не подготовил подарок для этого имени :(<br>ну или может норм имя введёшь?</p>
+    </div>
+</body>
+</html>

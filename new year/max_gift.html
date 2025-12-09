@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твой Подарок</title>
+    <link rel="shortcut icon" href="https://media.istockphoto.com/id/180703969/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D0%B4%D0%B0%D1%80%D0%BE%D0%BA-%D0%BD%D0%B0-%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D1%84%D0%BE%D0%BD%D0%B5.jpg?s=612x612&w=0&k=20&c=ZTs023JgrnTVWBmuGI-tuBnVxwXUYrBZj0BfsWhiVgw=">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="gift.css">
+    <script src="gift.js" defer></script>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <header class="glass-panel hero-section">
+            <div class="avatar-container">
+                <img src="../img/MAX.jpg" alt="Avatar" class="avatar">
+            </div>
+            <h1>С Новым Годом, <span class="highlight">Бро!</span></h1>
+            <p class="subtitle">Ты думал, я оставлю тебя без подарка?</p>
+            
+            <button class="action-btn" onclick="startCelebration()">
+                <i class="fas fa-gift"></i> Распаковать
+            </button>
+        </header>
+
+        <section class="glass-panel message-section hidden" id="hiddenContent">
+            <h2>📜 Пару слов для тебя</h2>
+            <p>
+                Братан, этот год был насыщенным. Мы многое прошли. 
+                Поскольку у тебя и так всё есть, я дарю тебе то, что нельзя купить — 
+                своё время и внимание, ну и этот сайтик.
+            </p>
+        </section>
+
+        <section class="glass-panel coupons-section hidden" id="hiddenCoupons">
+            <h2>🎟 Твои купоны</h2>
+            <p class="small-text">Нажми, чтобы использовать (купоны доступны только 1 раз в течении 2026 года)</p>
+            
+            <div class="coupons-grid">
+                <div id="coupon1" class="coupon-card" onclick="useCoupon(this)">
+                    <div class="icon">💯</div>
+                    <h3>Правда</h3>
+                    <p>Отвечу честно на любой твой вопрос!</p>
+                    <div class="status">Активен</div>
+                </div>
+
+                <div id="coupon2" class="coupon-card" onclick="useCoupon(this)">
+                    <div class="icon">🎮</div>
+                    <h3>Напарник</h3>
+                    <p>Играю с тобой в любую дичь 2 часа</p>
+                    <div class="status">Активен</div>
+                </div>
+
+                <div id="coupon3" class="coupon-card" onclick="useCoupon(this)">
+                    <div class="icon">👑</div>
+                    <h3>Ты прав</h3>
+                    <p>Автоматическая победа в любом нашем споре</p>
+                    <div class="status">Активен</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
